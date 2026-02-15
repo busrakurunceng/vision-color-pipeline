@@ -17,18 +17,31 @@ Input Image → Pixel Analysis → Histogram → K-Means Clustering → Segmenta
 5. **Name** each color using perceptual distance in CIE LAB color space
 6. **Visualize** everything: palette, side-by-side comparison, and a summary panel
 
-## Sample Output
+## Results
 
-Running the pipeline produces the following in `outputs/`:
+### Original vs Segmented
 
-| File | Description |
-|------|-------------|
-| `histogram_rgb.png` | Per-channel R, G, B intensity distributions |
-| `histogram_combined.png` | Overlaid RGB histogram for comparison |
-| `segmented.png` | Posterized image reduced to K colors |
-| `color_palette.png` | Dominant color swatches with names and percentages |
-| `comparison.png` | Original vs segmented side-by-side |
-| `summary.png` | Full dashboard combining all results |
+The image is reduced from millions of colors down to just **K = 8** dominant colors:
+
+![Comparison](outputs/comparison.png)
+
+### Dominant Color Palette
+
+Each cluster center is named using nearest-neighbor lookup in **CIE LAB** color space:
+
+![Color Palette](outputs/color_palette.png)
+
+### RGB Histograms
+
+Per-channel pixel intensity distributions reveal the color profile of the image:
+
+![RGB Histogram](outputs/histogram_rgb.png)
+
+### Full Summary
+
+A single dashboard combining the original image, segmented output, and color distribution:
+
+![Summary](outputs/summary.png)
 
 ## Project Structure
 
@@ -99,3 +112,12 @@ RANDOM_STATE = 42                  # Seed for reproducibility
 - **No magic numbers** — all constants live in `config.py`
 - **Type hints & docstrings** — every function is documented and typed
 - **LAB perceptual color naming** — colors are named by nearest-neighbor lookup in LAB space, not brittle HSV thresholds
+
+## Contact
+
+**Busra Kurun**
+
+- Email: [busrakurunceng@gmail.com](mailto:busrakurunceng@gmail.com)
+- LinkedIn: [linkedin.com/in/büşra-kurun](https://www.linkedin.com/in/b%C3%BC%C5%9Fra-kurun)
+
+Feel free to reach out for questions, feedback, or collaboration.
